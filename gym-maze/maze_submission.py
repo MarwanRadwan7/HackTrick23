@@ -1,12 +1,15 @@
 import numpy as np
 import requests
 import json
+import os
 
+from dotenv import load_dotenv
+load_dotenv()
 
 # For phase 2 to submit the maze
 
 maze = np.load('sample_maze.npy')
-agent_id = "bdZUAAFqkJ"  # Add your agent id here
+agent_id = os.environ.get("AGENT_ID")  # Add your agent id here
 
 # the ip below should be modified by you according to the server IP communicated with you
 # students track --> 16.170.85.45
