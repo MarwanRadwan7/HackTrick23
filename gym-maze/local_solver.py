@@ -9,6 +9,10 @@ import gym
 import gym_maze
 from gym_maze.envs.maze_manager import MazeManager
 from riddle_solvers import *
+import os 
+
+from dotenv import load_dotenv
+load_dotenv() 
 
 def select_action(state):
     # This is a random agent 
@@ -49,7 +53,7 @@ def local_inference(riddle_solvers):
 if __name__ == "__main__":
 
     sample_maze = np.load("hackathon_sample.npy")
-    agent_id = "9" # add your agent id here
+    agent_id = os.environ.get("AGENT_ID") # add your agent id here
     
     manager = MazeManager()
     manager.init_maze(agent_id, maze_cells=sample_maze)
